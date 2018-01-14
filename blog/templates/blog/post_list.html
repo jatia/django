@@ -2,20 +2,14 @@
     <head>
         <title>Django blog</title>
     </head>
-    <body>
-        <div>
-            <h1><a href="">Blog</a></h1>
-        </div>
-        <div>
-            <p>published: dd/mm/aaaa, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Prueba1</p>
-        </div>
-
-        <div>
-            <p>published: dd/mm/aaaa, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Prueba2</p>
-        </div>
-    </body>
+    <div>
+       <h1><a href="/">Django Blog</a></h1>
+   </div>
+   {% for post in posts %}
+       <div>
+           <p>published: {{ post.published_date }}</p>
+           <h1><a href="">{{ post.title }}</a></h1>
+           <p>{{ post.text|linebreaksbr }}</p>
+       </div>
+   {% endfor %}
 </html>
